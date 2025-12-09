@@ -1,7 +1,10 @@
 package interfaces;
+import models.Maker;
+import models.Provider;
 
 public abstract class Product {
     //Atributes--------------------------------------
+    private int id;
     private String name;
     private double price;
     private double discount;
@@ -11,14 +14,16 @@ public abstract class Product {
     private Maker maker;
 
     //get-set-----------------------------------------
+    public int getId(){return this.id;}
     public String getName(){return this.name;}
     public double getPrice(){return this.price;}
     public double getDiscount(){return this.discount;}
     public String getCode(){return this.code;}
     public String getDescription(){return this.description;}
-    public Provider getProvider(){return this.Provider;}
+    public Provider getProvider(){return this.provider;}
     public Maker getMaker(){return this.maker;}
     //------------------------------------------------
+    public void setId(int id){this.id = id;}
     public void setName(String name){this.name = name;}
     public void setPrice(double price){this.price = price;}
     public void setDiscount(double discount){this.discount = discount;}
@@ -34,7 +39,7 @@ public abstract class Product {
         this.price = price;
     }
     public Product(String name, double price, String code, String description, Provider provider, Maker maker){
-        this.nome = name;
+        this.name = name;
         this.price = price;
         this.code = code;
         this.description = description;
@@ -45,7 +50,7 @@ public abstract class Product {
     //Methods-----------------------------------------
     public void showAttributes(){
         System.out.println("\n\n-----Informações do Produto:-----");
-        System.out.println("\nNome: " + this.nome + ";");
+        System.out.println("\nNome: " + this.name + ";");
         System.out.println("Preço: " + this.price + "R$;");
         System.out.println("Preço com desconto: " + this.discount + "R$;");
         System.out.println("Código: " + this.code + ";");
@@ -55,7 +60,7 @@ public abstract class Product {
         System.out.println("\n------------------------------");
     }
 
-    public void promotion(double percentage){
+    public void promotion(double percentage) throws Exception {
         if(percentage>50){
             throw new Exception("O valor de desconto não pode ser maior do que 50%;");
         }else{
