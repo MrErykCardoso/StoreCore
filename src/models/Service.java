@@ -1,5 +1,5 @@
 package models;
 
-public class Maker {
+public class Service {
     
 }

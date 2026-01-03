@@ -1,4 +1,4 @@
-package interfaces;
+package abstractClasses;
 
 public class Person {
     
