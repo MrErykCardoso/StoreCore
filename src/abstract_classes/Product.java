@@ -1,5 +1,4 @@
-package abstractClasses;
-import models.Provider;
+package abstract_classes;
 
 /**Classe abstrata para aplicação de herança e polimorfismo em modelos baseados em produtos da loja gerenciada pelo StoreCore. @author @MrErykCardoso.*/
 public abstract class Product {
@@ -8,7 +7,7 @@ public abstract class Product {
     private double price;
     private double priceWithDiscount;
     private String code;
-    private Provider provider;
+    private Enterprise provider;
     private int inStock;
 
     public Product(){}
@@ -18,7 +17,7 @@ public abstract class Product {
         this.code = code;
         this.inStock = inStock;
     }
-    public Product(String name, String description, double price, double priceWithDiscount, String code, Provider provider, int inStock){
+    public Product(String name, String description, double price, double priceWithDiscount, String code, Enterprise provider, int inStock){
         this.name = name;
         this.description = description;
         this.price = price;
@@ -43,7 +42,7 @@ public abstract class Product {
     public String getCode(){
         return this.code;
     }
-    public Provider getProvider(){
+    public Enterprise getProvider(){
         return this.provider;
     }
     public int getInStock(){
@@ -65,7 +64,7 @@ public abstract class Product {
     public void setCode(String code){
         this.code = code;
     }
-    public void setProvider(Provider provider){
+    public void setProvider(Enterprise provider){
         this.provider = provider;
     }
     public void setInStock(int inStock){
