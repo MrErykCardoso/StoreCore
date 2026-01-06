@@ -62,10 +62,10 @@ public abstract class Person implements Loggable{
     }
 
     public void printInf(){
-        print("---------- Informações de " + name + "; ----------");
-        print("ID: " + id + ";");
-        print("CPF: " + cpf + ";");
-        print("EMAIL: " + email + ";");
-        print("Número de telefone: " + phoneNumber + ";");
+        print("---------- Informações de " + this.name + "; ----------");
+        print("ID: " + this.id + ";");
+        print("CPF: " + this.cpf + ";");
+        print("EMAIL: " + this.email + ";");
+        print("NÚMERO DE TELEFONE: " + this.phoneNumber + ";");
     }
 }

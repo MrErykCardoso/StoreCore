@@ -11,12 +11,6 @@ public abstract class Product implements Loggable{
     private double priceWithDiscount;
     private Enterprise provider;
 
-    public Product(){}
-    public Product(String name, String description, double price){
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
     public Product(String name, String description, double price, double priceWithDiscount, Enterprise provider){
         this.name = name;
         this.description = description;
@@ -72,11 +66,11 @@ public abstract class Product implements Loggable{
     }
 
     public void printInf(){
-        print("---------- Informações de " + name + "; ----------");
-        print("ID: " + id + ";");
-        print("DESCRIÇÃO: " + description + ";");
-        print("PREÇO: " + price + ";");
-        print("PREÇO COM DESCONTO: " + priceWithDiscount + ";");
-        print("FORNECEDOR: " + provider + ";");
+        print("---------- Informações do produto: " + this.name + "; ----------");
+        print("ID: " + this.id + ";");
+        print("DESCRIÇÃO: " + this.description + ";");
+        print("PREÇO: " + this.price + ";");
+        print("PREÇO COM DESCONTO: " + this.priceWithDiscount + ";");
+        print("FORNECEDOR: " + this.provider + ";");
     }
 }

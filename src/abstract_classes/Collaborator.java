@@ -2,7 +2,7 @@ package abstract_classes;
 import interfaces.Authenticable;
 import static service.UtilityFunctions.print;
 
-/**Classe abstrata para aplicação de herança sobre modelos de usuários do sistema StoreCore. @author @MrErykCardoso.*/
+/**Classe abstrata para aplicação de herança sobre modelos de usuários colaboradores da loja gerenciada pelo sistema StoreCore. @author @MrErykCardoso.*/
 public abstract class Collaborator extends Person implements Authenticable{
     private String auth;
     private String position;
@@ -60,10 +60,10 @@ public abstract class Collaborator extends Person implements Authenticable{
         super.printInf();
         
         print("----- Informações de colaborador; -----");
-        print("AUTENTICAÇÃO: " + auth + ";");
-        print("POSIÇÃO: " + position + ";");
-        print("HIERARQUIA: " + hierarchy + ";");
-        print("SALÁRIO: " + wage + ";");
+        print("AUTENTICAÇÃO: " + this.auth + ";");
+        print("POSIÇÃO: " + this.position + ";");
+        print("HIERARQUIA: " + this.hierarchy + ";");
+        print("SALÁRIO: " + this.wage + ";");
     }
 
 }
