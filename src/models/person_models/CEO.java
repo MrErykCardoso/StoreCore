@@ -1,18 +1,13 @@
 package models.person_models;
 import abstract_classes.Collaborator;
 import interfaces.*;
-public class CEO extends Collaborator implements Authenticable, StockManager, StockOperator{
+public class CEO extends Collaborator implements StockManager, StockOperator{
 
     public CEO(String name, String cpf, String email, String phoneNumber, String auth, String position, int hierarchy, double wage){
         super(name, cpf, email, phoneNumber, auth, position, hierarchy, wage);
     }
     public CEO(String id, String name, String cpf, String email, String phoneNumber, String auth, String position, int hierarchy, double wage){
         super(id, name, cpf, email, phoneNumber, auth, position, hierarchy, wage);
-    }
-    
-    //Interface Authenticable
-    public boolean authenticate(String auth){
-        return this.getAuth().equals(auth);
     }
 
     //Interface StockManager

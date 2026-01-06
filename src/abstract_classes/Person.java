@@ -1,7 +1,9 @@
 package abstract_classes;
+import interfaces.Loggable;
+import static service.UtilityFunctions.print;
 
 /**Classe abstrata para aplicação de herança sobre modelos de usuários do sistema StoreCore. @author @MrErykCardoso.*/
-public abstract class Person {
+public abstract class Person implements Loggable{
 
     private String id;
     private String name;
@@ -57,5 +59,13 @@ public abstract class Person {
     }
     public void setPhoneNumber(String phoneNumber){
         this.phoneNumber = phoneNumber;
+    }
+
+    public void printInf(){
+        print("---------- Informações de " + name + "; ----------");
+        print("ID: " + id + ";");
+        print("CPF: " + cpf + ";");
+        print("EMAIL: " + email + ";");
+        print("Número de telefone: " + phoneNumber + ";");
     }
 }
