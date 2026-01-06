@@ -2,7 +2,6 @@ package models.person_models;
 import abstract_classes.Collaborator;
 import interfaces.*;
 public class CEO extends Collaborator implements StockManager, StockOperator{
-
     public CEO(String name, String cpf, String email, String phoneNumber, String auth, String position, int hierarchy, double wage){
         super(name, cpf, email, phoneNumber, auth, position, hierarchy, wage);
     }
