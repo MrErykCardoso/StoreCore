@@ -66,7 +66,7 @@ public abstract class Product implements Loggable{
     }
 
     public void printInf(){
-        print("---------- Informações do produto: " + this.name + "; ----------");
+        print("---------- Informações do produto: " + this.name + " ----------");
         print("ID: " + this.id + ";");
         print("DESCRIÇÃO: " + this.description + ";");
         print("PREÇO: " + this.price + ";");
