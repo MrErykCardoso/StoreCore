@@ -41,7 +41,7 @@ public abstract class Person implements Loggable{
     public String getEmail(){
         return this.email;
     }
-    public String getPhoneNuber(){
+    public String getPhoneNumber(){
         return this.phoneNumber;
     }
 

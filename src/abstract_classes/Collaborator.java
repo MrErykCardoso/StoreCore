@@ -16,7 +16,7 @@ public abstract class Collaborator extends Person implements Authenticable{
         this.hierarchy = hierarchy;
         this.wage = wage;
     }
-    public Collaborator(String id, String name, String cpf, String auth, String email, String phoneNumber, String position, int hierarchy, double wage){
+    public Collaborator(String id, String name, String cpf, String email, String phoneNumber, String auth, String position, int hierarchy, double wage){
         super(id, name, cpf, email, phoneNumber);
         this.auth = auth;
         this.position = position;
