@@ -1,161 +1,196 @@
-🏪 StoreCore (MVP – Gerenciamento de Pessoas)
+<div align="center">
 
-Sistema simples para gerenciar clientes e colaboradores de uma loja, com permissões por cargo (CEO / Manager / Worker).
-Interface gráfica feita em Java Swing e dados salvos em PostgreSQL.
+# 🏪 StoreCore
+
+## Gerenciamento de Pessoas para Lojas (MVP)
+
+Sistema simples para **gerenciar colaboradores e clientes**, com **controle de permissões por cargo**.  
+Interface em **Java Swing** e dados persistidos em **PostgreSQL**.
+
+</div>
 
 ---
 
-🧱 Arquitetura (bem direta)
-Pastas principais
+## ✨ Funcionalidades
+
+### 👥 Colaboradores
+
+- Adicionar, editar e remover funcionários
+- 🔒 **Apenas CEO pode alterar**
+
+### 👤 Clientes
+
+- Adicionar, editar e remover clientes
+- 🔓 **CEO e Manager podem alterar**
+
+### 🛡️ Controle de
+
+- **CEO:** acesso total
+- **Manager:** gerencia clientes
+- **Worker:** apenas visualização
+
+---
+
+## 🧱 Arquitetura (simples e organizada)
+
+```dir
 src/
-├─ ui/ (telas Swing: LoginFrame, MenuFrame, CustomerFrame, CollaboratorFrame)
-├─ service/ (regras e permissões: UserService)
-├─ database/ (conexão + DAOs + inicialização do banco)
-├─ models/ (classes: Customer, CEO, Manager, Worker…)
-├─ abstract_classes/
-└─ App.java (ponto de entrada)
+ ├─ ui/              → Telas (Swing)
+ ├─ service/         → Regras e permissões
+ ├─ database/        → Conexão, DAOs e inicialização
+ ├─ models/          → Entidades (Customer, CEO, Manager, Worker)
+ ├─ abstract_classes/
+ └─ App.java         → Ponto de entrada
+
 sql/
-└─ schema.sql (criação das tabelas)
+ └─ schema.sql       → Criação das tabelas
+
 lib/
-└─ postgresql-\*.jar (driver JDBC do Postgres)
+ └─ postgresql-*.jar → Driver JDBC
+```
 
-Fluxo de uso (como o sistema roda)
-
-Usuário → UI (Swing) → UserService (permissões) → DAO (SQL) → PostgreSQL → volta pra UI → Usuário
-
----
-
-📚 Bibliotecas usadas
-
-Java Swing (javax.swing): interface gráfica
-
-JDBC (java.sql): conexão e comandos SQL
-
-PostgreSQL: banco de dados
-
-Collections (java.util): principalmente List e ArrayList para listar clientes/colaboradores
+**Fluxo:**  
+Usuário → Interface → Service (regras) → DAO (SQL) → PostgreSQL → Interface → Usuário
 
 ---
 
-✅ Instalação do PostgreSQL
-🪟 Windows (PowerShell)
+## 🧩 Tecnologias
 
-Opção mais simples (recomendada): instalar via winget:
+- **Java Swing (`javax.swing`)** — Interface gráfica
+- **JDBC (`java.sql`)** — Conexão com banco
+- **PostgreSQL** — Persistência de dados
+- **Collections (`java.util`)** — Listas e estruturas de dados
 
+---
+
+## 📥 Instalação do PostgreSQL
+
+### 🪟 Windows (PowerShell)
+
+```powershell
 winget install -e --id PostgreSQL.PostgreSQL
+```
 
-Depois, abra o pgAdmin (vem junto) ou o SQL Shell (psql) para criar o banco.
+### 🐧 Linux / WSL (Ubuntu)
 
-Se o winget não funcionar, instale pelo site oficial do PostgreSQL (installer) e siga o assistente.
-
-🐧 Linux (Ubuntu / WSL)
+```bash
 sudo apt update
 sudo apt install postgresql postgresql-contrib
 sudo service postgresql start
+```
 
 ---
 
-🗄️ Criar banco e usuário (uma vez só)
+## 🗄️ Criar banco e usuário (uma única vez)
 
-Abra o terminal e entre no PostgreSQL como admin.
+Acesse o PostgreSQL como administrador:
 
-Linux/WSL:
+### Linux / WSL
+
+```bash
 sudo -u postgres psql
+```
 
-Windows (se tiver psql no PATH):
+### Windows
+
+```powershell
 psql -U postgres
+```
 
-Agora rode estes comandos SQL:
+Execute:
 
+```sql
 CREATE USER storecore_user WITH PASSWORD '123';
 CREATE DATABASE storecore_db OWNER storecore_user;
 GRANT ALL PRIVILEGES ON DATABASE storecore_db TO storecore_user;
 \q
+```
 
 ---
 
-🔌 Driver JDBC do Postgres (obrigatório)
+## 🔌 Driver JDBC
 
-Coloque o arquivo do driver JDBC aqui:
+Baixe o driver do PostgreSQL e coloque em:
 
+```dir
 lib/postgresql-<versão>.jar
-
-(Esse .jar é o que permite o Java conversar com o PostgreSQL.)
+```
 
 ---
 
-▶️ Como iniciar o programa pelo terminal
+## ▶️ Como executar pelo terminal
 
-Na raiz do projeto (onde tem src/, sql/, lib/):
+Na raiz do projeto:
 
-Linux / WSL
+### Linux / wsl
+
+```bash
 mkdir -p bin
-javac -cp "lib/_" -d bin $(find src -name "_.java")
-java -cp "bin:lib/\*" App
+javac -cp "lib/*" -d bin $(find src -name "*.java")
+java -cp "bin:lib/*" App
+```
 
-Windows (PowerShell)
+### Windows (PowerShell)
+
+```powershell
 mkdir bin -ErrorAction SilentlyContinue
-javac -cp "lib/_" -d bin (Get-ChildItem -Recurse -Filter _.java src | % FullName)
-java -cp "bin;lib/\*" App
+javac -cp "lib/*" -d bin (Get-ChildItem -Recurse -Filter *.java src | % FullName)
+java -cp "bin;lib/*" App
+```
 
 ---
 
-🔑 Login inicial
+## 🔑 Login Inicial
 
-Na primeira execução, se não existir nenhum colaborador no banco, o sistema cria um usuário padrão:
+Na primeira execução, o sistema cria um usuário padrão:
 
+- **CPF:** `111`
+- **Senha:** `admin`
+
+---
+
+## 🧑‍💻 Como Usar
+
+1. Execute o programa
+2. Faça login
+3. No menu:
+   - **CEO:** gerencia colaboradores e clientes
+   - **Manager:** gerencia clientes
+   - **Worker:** apenas visualiza
+4. Para **editar**:
+   - selecione uma linha
+   - altere os campos
+   - clique em **Editar**
+
+---
+
+## ⚡ Exemplo Rápido
+
+##**Login**
+
+```
 CPF: 111
-
 Senha: admin
+```
+
+1. Vá em **Gerenciar Clientes**
+2. Clique em **Adicionar** e preencha:
+   - Nome: Maria
+   - CPF: 123
+   - Email: maria@email.com
+   - Telefone: 9999-0000
+3. Selecione Maria, altere o telefone e clique **Editar**
+
+✔ Dados salvos no banco.
 
 ---
 
-🧑‍💻 Como usar (passo a passo)
+## 🏁 Conclusão
 
-Abra o programa (App.java)
+O **StoreCore** é um MVP enxuto, funcional e organizado para:
 
-Faça login
+- ✔ Gerenciar clientes
+- ✔ Controlar colaboradores
+- ✔ Aplicar permissões por cargo
 
-No menu:
-
-CEO pode gerenciar Clientes e Colaboradores
-
-Manager pode gerenciar Clientes
-
-Worker apenas visualiza
-
-Para editar:
-
-selecione uma linha na tabela
-
-os campos serão preenchidos
-
-edite e clique Editar
-
----
-
-✅ Exemplo de uso (rapidinho)
-
-Login com:
-
-CPF: 111
-
-Senha: admin
-
-Vá em Gerenciar Clientes
-
-Adicione:
-
-Nome: Maria
-
-CPF: 123
-
-Email: maria@email.com
-
-Telefone: 9999-0000
-
-Clique Adicionar
-
-Selecione “Maria” na tabela, altere o telefone e clique Editar
-
-Pronto: dados persistidos no banco.
+**Simples. Direto. Profissional.** 😄
