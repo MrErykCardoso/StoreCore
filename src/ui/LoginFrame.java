@@ -8,7 +8,9 @@ import java.awt.event.ActionListener;
 import abstract_classes.Collaborator;
 import service.UserService;
 
+/**Classe de tela de interface de Login. Primeira tela do usuário. @author @MrErykCardoso. */
 public class LoginFrame extends JFrame {
+    //UI: javax.swing
 
     private JTextField txtCpf;
     private JPasswordField txtSenha;

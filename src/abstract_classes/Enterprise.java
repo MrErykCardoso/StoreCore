@@ -3,6 +3,7 @@ import static service.UtilityFunctions.print;
 
 import interfaces.Loggable;
 
+/**Classe abstrata para  */
 public abstract class Enterprise implements Loggable{
     private String id;
     private String name;

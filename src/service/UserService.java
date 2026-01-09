@@ -61,7 +61,7 @@ public class UserService {
     }
 
     public List<Collaborator> listCollaborators(Collaborator loggedUser) {
-        // MVP: todo mundo pode listar (se você quiser restringir, é só mudar)
+        // MVP: todo mundo pode listar
         return collaboratorDAO.findAll();
     }
 
@@ -100,22 +100,22 @@ public class UserService {
     // =========================
     // Autentica por CPF + auth (senha). Retorna o Collaborator logado ou null.
     public Collaborator login(String cpf, String auth) {
-    List<Collaborator> list = collaboratorDAO.findAll();
+        List<Collaborator> list = collaboratorDAO.findAll();
 
-    System.out.println("=== DEBUG LOGIN ===");
-    System.out.println("Digitado -> CPF: [" + cpf + "] | SENHA: [" + auth + "]");
-    System.out.println("Registros no banco:");
+        System.out.println("=== DEBUG LOGIN ===");
+        System.out.println("Digitado -> CPF: [" + cpf + "] | SENHA: [" + auth + "]");
+        System.out.println("Registros no banco:");
 
-    for (Collaborator c : list) {
-        System.out.println("Banco -> CPF: [" + c.getCpf() + "] | SENHA: [" + c.getAuth() + "]");
-        if (c.getCpf().trim().equals(cpf.trim()) && c.getAuth().trim().equals(auth.trim())) {
-            System.out.println(">>> LOGIN ENCONTRADO <<<");
-            return c;
+        for (Collaborator c : list) {
+            System.out.println("Banco -> CPF: [" + c.getCpf() + "] | SENHA: [" + c.getAuth() + "]");
+            if (c.getCpf().trim().equals(cpf.trim()) && c.getAuth().trim().equals(auth.trim())) {
+                System.out.println(">>> LOGIN ENCONTRADO <<<");
+                return c;
+            }
         }
-    }
 
-    System.out.println(">>> NENHUM USUÁRIO ENCONTRADO <<<");
-    return null;
-}
+        System.out.println(">>> NENHUM USUÁRIO ENCONTRADO <<<");
+        return null;
+    }
 
 }

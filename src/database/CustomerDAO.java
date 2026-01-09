@@ -8,6 +8,8 @@ import java.util.List;
 
 import models.person_models.Customer;
 
+/**Classe de DAO com funções de manipualção de dados no bando de dados via SQL. @author @MrErykCardoso*/
+
 public class CustomerDAO {
 
     public String save(Customer customer) {

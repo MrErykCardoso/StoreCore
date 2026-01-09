@@ -4,6 +4,9 @@ import static service.UtilityFunctions.print;
 
 /**Classe abstrata para aplicação de herança sobre modelos de usuários colaboradores da loja gerenciada pelo sistema StoreCore. @author @MrErykCardoso.*/
 public abstract class Collaborator extends Person implements Authenticable{
+    //Herança: Herda atributos e métodos de Person;
+    //Polimorfismo: Adiciona novos dados caracteristicos e sobrescreve métodos de acordo com a necessidade;
+
     private String auth;
     private String position;
     private int hierarchy;

@@ -11,7 +11,10 @@ import models.person_models.CEO;
 import models.person_models.Manager;
 import models.person_models.Worker;
 
+/**Classe de DAO com funções de manipualção de dados no bando de dados via SQL. @author @MrErykCardoso.*/
 public class CollaboratorDAO {
+    // Sparação de responsabilidades;
+    // Garante persistência no banco de dados;
 
     public String save(Collaborator c) {
         String sql =

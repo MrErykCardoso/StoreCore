@@ -1,11 +1,13 @@
 import database.DatabaseInitializer;
 import database.CollaboratorDAO;
 import models.person_models.CEO;
-import ui.LoginFrame;
-
+import ui.LoginFrame; 
 public class App {
 
+    /**Classe de entrypoint: orquestra a inicialização. @author @MrErykCardoso. */
     public static void main(String[] args) {
+        //Princício de responsabilidade única:
+        //Não mistuta interface nem regras de negócio;
 
         // 1) Inicializa o banco (cria tabelas se não existirem)
         DatabaseInitializer.init();
@@ -13,10 +15,11 @@ public class App {
         // 2) Garante que exista pelo menos um usuário para login (CEO padrão)
         CollaboratorDAO collaboratorDAO = new CollaboratorDAO();
 
+        //Se a lista de usuários estiver vazia, cria usuário padrão;
         if (collaboratorDAO.findAll().isEmpty()) {
 
             CEO admin = new CEO(
-                "MrErykDev",
+                "Admin",
                 "111", // login
                 "admin@storecore.com",
                 "9999",
